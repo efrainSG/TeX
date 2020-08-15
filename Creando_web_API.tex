@@ -1,0 +1,223 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Crear una web API}
+\author{Efraín Serna}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Iniciando con web API}
+
+\begin{enumerate}
+\item Crear un  nuevo proyecto de aplicación web con \emph{ASP.NET Core}
+\item Elegir una plantilla de \emph{API}
+\item Se agrega una carpeta de \emph{Models} y se agregan clases nuevas de modelos de datos.
+\item Como se van a utilizar datos desde una Base de Datos, se agrega un contexto de datos de \emph{Entity Framework}
+\begin{enumerate}
+\item Abrir el administrador de paquetes NuGet
+\item Buscar \emph{Microsoft.EntityFrameworkCore}
+\item Instalar los que terminan en \emph{SqlServer} y \emph{InMemory}
+\item Dentro de los modelos agregar una clase para el contexto de datos con un nombre terminado en \emph{Context}, por ejemplo: \emph{ProductosContext} o \emph{EscuelaContext}. En verde está lo que se personaliza.
+\begin{Verbatim}[commandchars=\\\{\}]
+using Microsoft.EntityFrameworkCore;
+
+namespace \textcolor{green}{[Proyecto]}.Models \{
+  public class \textcolor{green}{[Nombre]}Context : DbContext \{
+    // constructor
+    public \textcolor{green}{[Nombre]}Context(
+      DbContextOptions<\textcolor{green}{[Nombre]}Context> options)
+      : base(options) \{
+    \}
+
+    public DbSet<\textcolor{green}{[ClaseModelo]}> \textcolor{green}{[Modelo]}Items \{ get; set; \}
+  \}
+\}
+\end{Verbatim}
+\item Registrar el contexto de datos modificando \emph{Startup.cs} agregando el código en azul
+\begin{Verbatim}[commandchars=\\\{\}]
+public void ConfigureServices(IServiceCollection services) \{
+  \textcolor{blue}{services.AddDbContext<[Nombre]Context>(opt =>}
+  \textcolor{blue}{opt.UseInMemoryDatabase("TodoList"));}
+  services.AddControllers();
+\}
+\end{Verbatim}
+\end{enumerate}
+\item Agregar dentro de la carpeta \emph{Controllers} un controlador (aquí lo pongo como una clase nueva y vacía cuyo nombre termina en \emph{Controller})
+\begin{enumerate}
+\item Agregar una nueva clase
+\item Agregar los decoradores a la declaración de la clase y hacerla heredar (en verde lo que es personalizable):
+\begin{Verbatim}[commandchars=\\\{\}]
+  \textcolor{blue}{[ApiController, Route("}\textcolor{green}{[Ruta]}\textcolor{blue}{")]}
+  public class \textcolor{green}{[Nombre]}Controller \textcolor{blue}{: ControllerBase}
+\}
+\end{Verbatim}
+\item Por buena práctica se declara el contexto de manera global a la clase controladora
+\end{enumerate}
+\end{enumerate}
+
+\section{Creación y llamado de métodos}
+\begin{description}
+\item[HttpGet] Se suele utilizar para hacer petiiciones de información donde los parámetros pueden viajar en la URL. En el decorador se puede especificar la forma de realizar el llamado. Si solo se indican argumentos entre llaves, entonces en la URL de la API no se indica el nombre del método. De manera personal prefiero especificar el nombre de este.
+\begin{Verbatim}[commandchars=\\\{\}]
+[HttpGet("\textcolor{green}{[Identificador de llamada]/\{arg1\}}")]
+public async Task<ActionResult> \textcolor{green}{initContext}(\textcolor{green}{int arg1}) \{
+\textcolor{green}{// ... código ...}
+  return Ok(resultado);
+\}
+\end{Verbatim}
+El siguiente ejemplo muestra cómo devolver un dato complejo.
+\begin{Verbatim}[commandchars=\\\{\}]
+[HttpGet("\textcolor{green}{[Identificador]/\{id\}}")]
+public async Task<ActionResult<\textcolor{green}{clase modelo}>> \textcolor{green}{getItem}(\textcolor{green}{int id}) \{
+  var _item = await _context.\textcolor{green}{Colección de entidades}.FindAsync(\textcolor{green}{id});
+  if (_item == null)
+    return NotFound();
+  else
+    return _item;
+\}
+\end{Verbatim}
+Para devolver una colección de elementos se puede hacer como en el siguiente ejemplo:
+\begin{Verbatim}[commandchars=\\\{\}]
+[HttpGet("\textcolor{green}{[Identificador]}")]
+public async Task<IEnumerable<ActionResult<\textcolor{green}{clase modelo}>>> \textcolor{green}{getItem}() \{
+  return await _context.\textcolor{green}{Colección de entidades}.ToListAsync();
+\}
+\end{Verbatim}
+
+\item[HttpPost] Se suele utilizar para operaciones de inserción de registros. La información viaja encapsulada como mecanismo de seguridad, y si se hace por medio del protocolo \emph{https}, se cifran los datos.
+\begin{Verbatim}[commandchars=\\\{\}]
+[HttpPost]
+public async Task<ActionResult<\textcolor{green}{clase modelo}>> \textcolor{green}{PostItem}(
+  \textcolor{green}{Iclase modelo} item) \{
+  _context.\textcolor{green}{coleccion de entidades}.Add(item);
+  await _context.SaveChangesAsync();
+  // regresa el elemento recién agregado llamando al método
+  // correspondiente al HttpGet
+  return CreatedAtAction(nameof(\textcolor{green}{getItem}), new \{id=item.Id\}, item );
+\}
+\end{Verbatim}
+\item[HttpPut] Se utiliza para operaciones de actualización. Se le pasan parámetros, por ejemplo el identificador y el objeto a modificar, de aquí se puede hacer una validación de identificadores o algo adicional antes de realizar la actualización. Como ejemplo está el siguiente fragmento de código.
+\begin{Verbatim}[commandchars=\\\{\}]
+[HttpPut("\textcolor{green}{\{id\}}")]
+public async Task<ActionResult> \textcolor{green}{PutItem} (\textcolor{green}{int id}, \textcolor{green}{clase modelo} item) \{
+  if (id != item.Id)
+    return BadRequest();
+  _context.Entry(item).State = EntityState.Modified;
+  try \{
+    await _context.SaveChangesAsync();
+  \} catch (DbUpdateConcurrencyException DBUCEx) \{
+    if (!itemCompraExiste(id))
+      return NotFound();
+    else
+      throw;
+    \}
+  return NoContent();
+\}
+
+private bool itemCompraExiste(int id) =>
+  _context.\textcolor{green}{colección de entidades}.Any(i => i.Id.Equals(id));
+
+\end{Verbatim}
+\item[HttpDelete] Se utiliza para el eliminado de información. Se le pasa como argumento el identificador del elemento a borrar. El siguiente fragmento es un ejemplo:
+\begin{Verbatim}[commandchars=\\\{\}]
+[HttpDelete("\textcolor{green}{\{id\}}")]
+public async Task<ActionResult<\textcolor{green}{clase modelo}>> \textcolor{green}{deleteItem}(int id) \{
+  var item = await _context.\textcolor{green}{colección de entidades}.FindAsync(id);
+  if (item == null)
+    return NotFound();
+
+  _context.\textcolor{green}{colección de entidades}.Remove(item);
+  await _context.SaveChangesAsync();
+
+  return item;
+\} 
+\end{Verbatim}
+\end{description}
+\section{Objetos de Transferencia de Datos (DTO)}
+A manera de vistas parciales y derivadas, permiten trasladar los datos a otras estructuras. Para ello se crean nuevos modelos y métodos estáticos que transformen de los modelos primarios a los DTOs, y viceversa.
+
+\section{Invocaciones desde Javascript}
+\subsection{jQuery}
+\subsection{Angular}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
