@@ -4,9 +4,10 @@
 % This is a simple template for a LaTeX document using the "article" class.
 % See "book", "report", "letter" for other types of document.
 
-\documentclass[11pt]{article} % use larger type; default would be 10pt
+\documentclass[12pt]{book} % use larger type; default would be 10pt
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[spanish]{babel}
 
 %%% Examples of Article customizations
 % These packages are optional, depending whether you want the features they provide.
@@ -53,20 +54,218 @@
 
 %%% The "real" document content comes below...
 
-\title{Brief Article}
-\author{The Author}
+\title{Memorias Chubb México}
+\author{M. C. Y T. E. / L.C. C. Efraín Serna Gracia}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
 \maketitle
+\tableofcontents
 
-\section{First section}
+\part{Tienda de Seguros - Assurance Store}
 
-Your text goes here.
+\chapter{Micro-servicios}
 
-\subsection{A subsection}
+\section{PolicyDetails}
 
-More text.
+\section{Token}
+
+\subsection{TokenizeQuoteId}
+
+\subsubsection{¿Qué hace?}
+Realiza la tokenización de una cadena que corresponde con la informacion que identifica a una cotización. Es de la forma:\\ \verb_cotid=<número>&verid=<número>&secid=2_
+
+\subsubsection{Configuración}
+Valores en QA
+\begin{verbatim}
+  "ValidIssuers": {
+    "OnPremise": "https://login.abaseguros.com,https://ssocitibanamex
+                  .chubbnet.com,https://login.chubbnet.com,https://
+                  web5.abaseguros.com",
+    "Azure": "https://login.microsoftonline.com/64ebf9f1-4e93-400f-
+                  90f2-3e8ae50e48f5/v2.0/,https://laaadb2c02dev.
+                  b2clogin.com/389bd266-0e4e-414d-962b-d5440ad2be1a/
+                  v2.0/"
+  },
+  "SecurityOnPremise": {
+    "ExpireTimeInMinutes": 20,
+    "ApiCoreSystemName": "Assurance Store",
+    "Section": "2",
+    "Framework.DataAccess.ConnectionTimeOut": 60,
+    "LATAM": "test",
+    "SecretKey": "8DD56D9D0826E90D14C9C4E7591AD6BEC28AE75F7
+                  C6A659DAB22F100DF447D7C",
+    "Audience": "https://www.chubbnetqa.com",
+    "JWT_SignKey": "1DD56D9D0846E90D14CAC4E7591AD6BEC28AE9
+                    5F7C6A659DAB22F100DF551D7A",
+    "JWT_EncKey": "D5D5AD9D0816E90D24C9A4E7591106BEC28AE75
+                   F7C6A659DAB22F100DF417A21",
+    "MXReadOnly": "TEST",
+    "Issuer": "https://web5.abaseguros.com"
+  }
+\end{verbatim}
+
+Valores en UAT
+\begin{verbatim}
+  "ValidIssuers": {
+    "OnPremise": "",
+    "Azure": "https://login.microsoftonline.com/64ebf9f1-4e93-400f-
+                  90f2-3e8ae50e48f5/v2.0/,https://laaadb2c02dev.
+                  b2clogin.com/389bd266-0e4e-414d-962b-d5440ad2be1a/
+                  v2.0/"
+  },
+  "SecurityOnPremise": {
+    "ExpireTimeInMinutes": 2,
+    "ApiCoreSystemName": "Assurance Store",
+    "Section": "2",
+    "Framework.DataAccess.ConnectionTimeOut": 60,
+    "LATAM": "test",
+    "SecretKey": "",
+    "Audience": "",
+    "JWT_SignKey": "",
+    "JWT_EncKey": "",
+    "MXReadOnly": "TEST",
+    "Issuer": ""
+  }
+\end{verbatim}
+
+
+Valores en PROD
+\begin{verbatim}
+  "ValidIssuers": {
+    "OnPremise": "",
+    "Azure": ""
+  },
+  "SecurityOnPremise": {
+    "ExpireTimeInMinutes": 1,
+    "ApiCoreSystemName": "Assurance Store",
+    "Section": "2",
+    "Framework.DataAccess.ConnectionTimeOut": 60,
+    "LATAM": "test",
+    "SecretKey": "",
+    "Audience": "",
+    "JWT_SignKey": "",
+    "JWT_EncKey": "",
+    "MXReadOnly": "",
+    "Issuer": ""
+  }
+\end{verbatim}
+
+\chapter{Fachada}
+
+\section{Token}
+
+\subsection{TokenizeQuoteId}
+\subsubsection{¿qué hace?}
+\subsubsection{Configuración}
+Valores en QA
+\begin{verbatim}
+  "EndPoints": {
+    "UrlGetQuote": "https://digitalmx_svcs_qa.aceins.com/AssuranceStore
+                   /api/v1/Quote",
+    "UrlGetStore": "https://digitalmx_svcs_qa.aceins.com/AssuranceStore
+                   /api/v1/Store",
+    "UrlGetToken": "https://digitalmx_svcs_qa.aceins.com/AssuranceStore
+                   /api/v1/TokenizeQuoteId",
+    "UrlPolicyDetails": "https://digitalmx_svcs_qa.aceins.com/
+                   AssuranceStore/api/v1/PolicyDetails/",
+    "UrlWalletAPI": "http://172.25.106.171/ChubbNetWallet/api/v1/passes
+                   /pass",
+    "TimeoutResponse": 30
+  },
+  "Variables": {
+    "clientId": 2,
+    "clientSecret": "Mke7Jkq//F5t5BUUBgDfmYcZFff0GiF3msgfRdxcsr8=",
+    "passTypeIdentifier": "pass.com.chubbmx.wallet",
+    "referenceTypeId": 1,
+    "authURL": "https://sit-chubbnetlogin.chubblatinamerica.com/
+                   SecurityProxy/api/v1/oauth2/token",
+    "client_id": "TSBAFAR",
+    "client_secret": "Chubb123*",
+    "grant_type": "client_credential"
+  }
+
+\end{verbatim}
+
+Valores en UAT
+\begin{verbatim}
+  "EndPoints": {
+    "UrlGetQuote": "https://.../AssuranceStore/api/v1/Quote",
+    "UrlGetStore": "https://.../AssuranceStore/api/v1/Store",
+    "UrlGetToken": "https://.../AssuranceStore/api/v1/
+                   TokenizeQuoteId",
+    "UrlPolicyDetails": "https://.../AssuranceStore/api/v1/
+                   PolicyDetails/",
+    "UrlWalletAPI": "http://.../ChubbNetWallet/api/v1/passes/
+                   pass",
+    "TimeoutResponse": 30
+  },
+  "Variables": {
+    "clientId": 2,
+    "clientSecret": "",
+    "passTypeIdentifier": "",
+    "referenceTypeId": 1,
+    "authURL": "",
+    "client_id": "TSBAFAR",
+    "client_secret": "Chubb123*",
+    "grant_type": "client_credential"
+  }
+\end{verbatim}
+
+Valores en PROD
+\begin{verbatim}
+  "EndPoints": {
+    "UrlGetQuote": "https://.../AssuranceStore/api/v1/Quote",
+    "UrlGetStore": "https://.../AssuranceStore/api/v1/Store",
+    "UrlGetToken": "https://.../AssuranceStore/api/v1/
+                   TokenizeQuoteId",
+    "UrlPolicyDetails": "https://.../AssuranceStore/api/v1/
+                   PolicyDetails/",
+    "UrlWalletAPI": "http://.../ChubbNetWallet/api/v1/passes/
+                   pass",
+    "TimeoutResponse": 30
+  },
+  "Variables": {
+    "clientId": 2,
+    "clientSecret": "",
+    "passTypeIdentifier": "",
+    "referenceTypeId": 1,
+    "authURL": "",
+    "client_id": "TSBAFAR",
+    "client_secret": "",
+    "grant_type": "client_credential"
+  }
+\end{verbatim}
+\chapter{Middleware}
+
+\chapter{Procedimientos Almacenados}
+
+\part{Consulta Integral}
+
+\chapter{Consulta.UI}
+El cambio que se requiere es realizar las consultas de cotizaciones de la tienda, además de mostrar una lista desplegable y un botón para abrir la página de la tienda seleccionada. Además de abrir las cotizaciones en las páginas de sus tiendas.
+
+\section{¿Qué hace?}
+Muestra el combo con el catálogo de tiendas, además de mostrar las cotizaciones de las tiendas y realizar la apertura de las páginas enviando información que identifica la cotización en forma encriptada. Tiene en el controlador el llamado al WCf que realiza la tokenización de la información y su conversión a base64 para ser enviada por QueryString a la tienda.
+\section{Objetos modificados}
+\begin{itemize}
+\item SendMailBusinessLogic.cs
+\item SendMailController.cs
+\item MailAssuranceStorePolicy.cs
+\item appsettings.json
+\end{itemize}
+
+\chapter{Consulta.WCF}
+
+\subsubsection{¿Qué hace?}
+Se agrega un método que realiza la tokenización de la información. Dicho token tiene una vigencia de 2 minutos pero para fines de prueba se configura a 20. Este método hace uso de la fachada y de microservicios, quienes realizan la tokenización, propiamente.
+\subsection{Objetos modificados}
+\begin{itemize}
+\item SendMailBusinessLogic.cs
+\item SendMailController.cs
+\item MailAssuranceStorePolicy.cs
+\item appsettings.json
+\end{itemize}
 
 \end{document}

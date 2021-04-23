@@ -1,0 +1,409 @@
+\documentclass[12pt]{book} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage[spanish]{babel}
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+\title{Angular ¡YA!}
+\author{Efraín Serna Gracia}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{¿Qué es Angular? - Herramientas necesarias}
+\chaptermark{¿Qué es Angular?}
+Angular es un framework para el desarrollo de aplicaciones web. Está pensado para dividir un proyecto en componentes y ser reutilizadas en proyectos medianos y grandes.\\
+
+Sus principales competidores son Vue (proyecto iniciado por Evan You en 2014) y React ( proyecto iniciado por Facebook en 2013)\\
+
+Angular tiene su salida al mercado en 2016 pero tiene una versión previa no compatible y solo mantenida para proyectos antiguos llamada Angular.js (2010)\\
+
+El proyecto de Angular es propiedad de la empresa de Google.\\
+
+La versión de Angular que trabajamos en este tutorial es la 9 (salió el 6/2/2020)\\
+
+Para desarrollar en forma efectiva una aplicación en Angular debemos instalar al menos dos herramientas básicas:\\
+\begin{itemize}
+\item Node.js
+\item Angular CLI (Command Line Interface - Interfaz de línea de comandos)
+\end{itemize}
+
+\section{Instalación de Node.js}
+La primer herramienta a instalar será Node.js, esto debido a que gran cantidad de programas para el desarrollo en Angular están implementadas en Node.\\
+
+Debemos Descargar e instalar la última versión estable de Node.js.\\
+
+Una vez instalado debemos ingresar a la línea de comandos que nos provee Nodo.js.\\
+
+Para comprobar su correcto funcionamiento podemos averiguar su versión: \verb_node -v_.
+
+\section{Instalación de Angular CLI}
+Para instalar este software lo hacemos desde la misma línea de comandos de Node.js (por eso lo instalamos primero), debemos ejecutar el siguiente comando: \verb_npm install -g @angular/cli_.\\
+
+Es importante el -g para que se instale en forma global.
+
+\chapter{Creación de un proyecto y prueba de su funcionamiento}
+\chaptermark{Creación de un proyecto}
+Para crear un proyecto vamos a utilizar la aplicación Angular CLI que acabamos de instalar en el concepto anterior.\\
+
+Desde la línea de comandos de Node.js procedemos a ejecutar el siguiente comando: \verb_ng new webapp02_\\
+Se nos pide si queremos crear rutas (tema que veremos más adelante), elegiremos \textbf{N}.\\
+Luego seleccionaremos que utilizaremos archivos CSS para los estilos (valor seleccionado por defecto).\\
+
+Este comando crea la carpeta \textbf{webapp02} e instala una gran cantidad de herramientas que nos auxiliarán durante el desarrollo del proyecto (332mb). Como Angular esta pensado para aplicaciones de complejidad media o alta no hay posibilidad de instalar menos herramientas.\\
+
+El proceso de generar el proyecto lleva bastante tiempo ya que deben descargarse de internet muchas herramientas.\\
+
+Se genera una aplicación con el esqueleto mínimo, para probarlo debemos descender a la carpeta que se acaba de crear y lanzar el siguiente comando desde Node: \verb_ng serve -o_\\
+
+Este comando arranca un servidor web en forma local y abre el navegador para la ejecución de la aplicación. En caso de no abrirse, lo hacemos en forma manual e ingresamos la URL que indica la consola de Node.\\
+
+Debemos utilizar un editor de texto para codificar la aplicación. Yo recomiendo el Visual Studio Code.\\
+
+Si utilizamos este editor podemos elegir la opción: \emph{Archivo -> Abrir carpeta} y proceder a buscar la carpeta \textbf{webapp02}.\\
+
+En este concepto no me interesa ver todos las carpetas y archivos generados. Solo efectuaremos un cambio para ver como se reflejan en el navegador.\\
+
+En la carpeta \textbf{webapp02} hay una subcarpeta llamada \textbf{src} y dentro de esta una llamada \textbf{app}, busquemos el archivo \textbf{app.component.html} y procedamos a borrar las más de 500 líneas.\\
+
+Si leemos las primeras líneas nos informa que siempre debemos modificar el archivo con los algoritmos de nuestro proyecto (se genera a modo de ejemplo).\\
+
+Disponemos el siguiente código remplazando al generado en forma automática:
+
+\begin{verbatim}
+<h1 style="text-align:center">
+  Bienvenido a {{ title }}
+</h1>
+\end{verbatim}
+
+Una vez que grabamos los cambios en este archivo podemos ver que automáticamente se ven reflejados en el navegador (recordemos de no cerrar la ventana de Node.js que tiene el servidor web en funcionamiento en forma local).\\
+
+A partir del próximo concepto comenzaremos a analizar un proyecto Angular, en este momento me interesa solo recordar los pasos que debemos dar para crear y ejecutar un proyecto.
+
+\chapter{Archivos y carpetas básicas de un proyecto en Angular}
+\chaptermark{Archivos y carpetas básicas}
+Vimos en el concepto anterior que para crear un proyecto en Angular utilizamos la herramienta Angular CLI y desde la línea de comandos escribimos: \verb_ng new webapp02_\\
+
+No haremos por el momento un estudio exhaustivo de todos los archivos y carpetas que se crean (más 55000 archivos y 4700 carpetas en la versión de Angular 9.x), sino de aquellas que se requieren modificar según el concepto que estemos estudiando.\\
+
+En Angular la pieza fundamental es el \emph{COMPONENTE}. Debemos pensar siempre que una aplicación se construye a base de un conjunto de componentes (por ejemplo pueden ser componentes: un menú, lista de usuarios, login, tabla de datos, calendario, formulario de búsqueda etc.)\\
+
+Angular CLI nos crea una única componente llamada 'AppComponent' que se distribuye en 4 archivos:
+\begin{itemize}
+\item app.component.ts
+\item app.component.html
+\item app.component.css
+\item app.component.spec.ts
+\end{itemize}
+Todos estos archivos se localizan en la carpeta \textbf{app} y esta carpeta se encuentra dentro de la carpeta \textbf{src}.\\
+
+En Angular se programa utilizando el lenguaje \emph{TypeScript} que vamos a ir aprendiéndolo a lo largo del curso. El archivo donde se declara la clase AppComponent es \emph{app.component.ts}:
+
+\begin{verbatim}
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'webapp02';
+}
+\end{verbatim}
+
+La Clase AppComponent define un atributo llamado 'title' y lo inicializa con el string 'webapp02' que coincide con el nombre del proyecto que creamos: \verb_title = 'webapp02';_.\\
+
+Dijimos anteriormente que la clase completa se distribuye en otros archivos y podemos ver que mediante la función decoradora \textbf{@Component} le indicamos los otros archivos que pertenecen a esta componente:
+
+\begin{verbatim}
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+\end{verbatim}
+
+El archivo 'app.component.html' tiene la parte visual de nuestra componente 'AppComponent' y está constituido mayormente por código HTML (cada vez que realicemos un proyecto a este código lo borraremos para resolver nuestro problema):
+
+\begin{verbatim}
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+<!-- código CSS /-->
+</style>
+
+<!-- Omito el código completo que se genera automáticamente /-->
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+\end{verbatim}
+
+Como vimos en el concepto anterior cambiamos el contenido de este archivo por:
+
+\begin{verbatim}
+<h1 style="text-align:center">
+  Bienvenido a {{ title }}
+</h1>
+\end{verbatim}
+
+Analizaremos ahora de este trozo de HTML donde aparece el atributo 'title' de la componente: \verb_Bienvenido a {{ title }}_
+Cuando ejecutamos nuestra aplicación desde la línea de comandos de Node.js, en el navegador aparece el contenido de la propiedad 'title'. Podemos ver que aparece el string \emph{webapp02} y no \emph{\{\{ title \}\}}\\
+
+Este concepto de sustitución se llama interpolación y lo veremos en forma más profunda en el concepto siguiente.\\
+
+Otro archivo que se asocia a la componente \emph{AppComponent} es \textbf{app.component.css} donde se almacenan todos los estilos que se van a aplicar solo a dicha componente, es decir que quedarán encapsulados en la componente \textbf{AppComponent}.\\
+
+En la carpeta raíz del proyecto hay un archivo llamado 'styles.css' donde podemos definir estilos que se aplicarán en forma global a todas las componentes de nuestra aplicación.\\
+
+Ya hemos nombrado los tres archivos fundamentales que definen toda componente:
+\begin{itemize}
+\item app.component.ts
+\item app.component.html
+\item app.component.css
+\end{itemize}
+Queda uno llamado \textbf{app.component.spec.ts} que tiene por objetivo definir código de testing para medir el correcto funcionamiento de la componente (dejaremos para más adelante este concepto).
+
+Otro archivo fundamental que nos crea Angular CLI es \textbf{app.module.ts} en la misma carpeta donde se encuentran los 4 archivos de la componente \textbf{AppComponent}.\\
+
+\begin{verbatim}
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+\end{verbatim}
+
+Nombramos este archivo porque como mínimo una aplicación en Angular debe tener un módulo. Podemos ver que en la función \verb_@NgModule_ en la propiedad \textbf{declarations} se le pasa un vector con un elemento que es nuestra componente \emph{AppComponent}.\\
+
+La aplicación mínima en Angular debe tener un módulo y dentro de dicho módulo como mínimo una componente.\\
+
+Un proyecto grande se divide en diferentes módulos con un conjunto de componentes cada uno.\\
+
+Por ejemplo podemos tener un módulo 'Clientes' con tres componentes que resuelven distintas partes visuales de la aplicación.\\
+
+En los primeros conceptos de este tutorial estaremos trabajando con la única componente \emph{AppComponent} y más adelante veremos como crear más componentes en el módulo \emph{AppModule} e inclusive como crear más módulos.
+
+Hay muchos más archivos y carpetas en el proyecto que nos crea Angular CLI pero iremos viendo su objetivo a medida que avancemos en el curso.
+
+\chapter{Interpolación en los archivos HTML de Angular}
+\chaptermark{Interpolación}
+Una de las características fundamentales en Angular es separar la vista del modelo de datos. En el modelo de datos tenemos las variables y en la vista implementamos como se muestran dichos datos.\\
+
+Modificaremos el webapp02 para ver este concepto de interpolación.\\
+
+Abriremos el archivo que tiene la clase AppComponent (app.component.ts) y lo modificaremos con el siguiente código:
+\begin{verbatim}
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  nombre = 'Rodriguez Pablo';
+  edad = 40;
+  email = 'rpablo@gmail.com';
+  sueldos = [1700, 1600, 1900];
+  activo = true;
+
+  esActivo() {
+    if (this.activo)
+      return 'Trabajador Activo';
+    else
+      return 'Trabajador Inactivo';
+  }
+
+  ultimos3Sueldos() {
+    let suma=0;
+    for(let x=0; x<this.sueldos.length; x++)
+      suma+=this.sueldos[x];
+    return suma;
+  }
+}
+\end{verbatim}
+
+La clase \emph{AppComponent} representa los datos de un empleado. Definimos e inicializamos 5 propiedades:
+
+\begin{verbatim}
+  nombre = 'Rodriguez Pablo';
+  edad = 40;
+  email = 'rpablo@gmail.com';
+  sueldos = [1700, 1600, 1900];
+  activo = true;
+\end{verbatim}
+
+Definimos dos métodos, en el primero según el valor que almacena la propiedad 'activo' retornamos un string que informa si es un empleado activo o inactivo:\\
+
+\begin{verbatim}
+  esActivo() {
+    if (this.activo)
+      return 'Trabajador Activo';
+    else
+      return 'Trabajador Inactivo';
+  }
+\end{verbatim}
+
+El segundo método retorna la suma de sus últimos 3 meses de trabajo que se almacenan en la propiedad \emph{sueldos}\\
+
+\begin{verbatim}
+  ultimos3Sueldos() {
+    let suma=0;
+    for(let x=0; x<this.sueldos.length; x++)
+      suma+=this.sueldos[x];
+    return suma;
+  }
+\end{verbatim}
+
+Veamos ahora el archivo html que muestra los datos, esto se encuentra en 
+
+\emph{app.component.html}
+
+\begin{verbatim}
+<div>
+  <p>Nombre del Empleado:{{nombre}}</p>
+  <p>Edad:{{edad}}</p>  
+  <p>Los últimos tres sueldos son: {{sueldos[0]}}, {{sueldos[1]}} y 
+t{{sueldos[2]}}</p>
+  <p>En los últimos 3 meses ha ganado: {{ultimos3Sueldos()}}</p>
+  <p>{{esActivo()}}</p>
+</div>
+\end{verbatim}
+
+Para acceder a las propiedades del objeto dentro del template del HTML debemos disponer dos llaves abiertas y cerradas y dentro el nombre de la propiedad: \verb_<p>Nombre del Empleado:{{nombre}}</p>_\\
+
+Cuando se tratan de vectores la primer forma que podemos acceder es mediante un subíndice: \verb_<p>Los últimos tres sueldos son: {{sueldos[0]}},_
+
+\verb_{{sueldos[1]}} y {{sueldos[2]}}</p>_\\
+
+Finalmente podemos llamar a métodos que tiene por objetivo consultar el valor de propiedades:
+
+\begin{verbatim}
+  <p>En los últimos 3 meses ha ganado: {{ultimos3Sueldos()}}</p>
+  <p>{{esActivo()}}</p>
+\end{verbatim}
+
+Cuando ejecutamos nuestra aplicación desde la línea de comandos de Node.js.\\
+
+En el navegador aparece el contenido de la vista pero con los valores sustituidos donde dispusimos las llaves \verb_{{ }}_.\\
+
+En principio podríamos decir que si los datos son siempre los mismos no tiene sentido definir propiedades en la clase y sustituirlos luego en el HTML, pero luego veremos que las propiedades las vamos a cargar mediante una petición a un servidor web, en esas circunstancias veremos la potencia que tiene modificar las propiedades y luego en forma inmediata se modifica la vista.\\
+
+Acotaciones
+Dentro de las dos llaves abiertas y cerradas Angular nos permite efectuar una operación:
+
+<p>En los últimos 3 meses ha ganado: {{sueldos[0]+sueldos[1]+sueldos[2]}}</p>  
+Primero se opera la expresión dispuesta dentro de las llaves previo a mostrarla.
+
+Otro ejemplo:
+
+<p>El empleado dentro de 5 años tendrá:{{edad+5}}</p>
+Podemos utilizar la interpolación como valor en propiedades de elementos HTML. Si en la clase tenemos definida la propiedad:
+
+sitio='http://www.google.com';
+Luego en la vista podemos interpolar la propiedad 'url' del elemento 'a' con la siguiente sintaxis:
+
+<p>Puede visitar el sitio ingresando <a href="{{sitio}}">aquí</a></p>
+\chapter{Directivas *ngIf y *ngFor}
+
+\chapter{Captura de eventos}
+
+\chapter{Directiva ngModel}
+
+\chapter{Componentes}
+
+\section{Creación}
+
+\section[Pasar datos de la componente padre a la componente hija]{Pasar datos de la componente padre a la componente hija\sectionmark{Pasar datos}}
+\sectionmark{Pasar datos}
+
+\section[Disparo de eventos de la componente hija a la componente padre]{Disparo de eventos de la componente hija a la componente padre\sectionmark{Disparo de eventos}}
+\sectionmark{Disparo de eventos}
+
+\section[Llamar a métodos de la componente hija]{Llamar a métodos de la componente hija\sectionmark{Llamar a métodos}}
+\sectionmark{Llamar a métodos}
+
+\subsection{Desde el template del padre}
+
+\subsection{Desde la clase padre}
+
+\section{enlace de propiedades}
+
+\chapter{Módulos: creación y consumo}
+\chaptermark{Módulos}
+
+\chapter{Petición de un archivo JSON a un servidor}
+\chaptermark{Petición de JSON}
+
+\chapter{Router: definición de rutas}
+\chaptermark{Router}
+
+\chapter{Servicios}
+
+\section{Concepto y pasos para crearlos}
+
+\section[Recuperación de datos de un servidor web]{Recuperación de datos de un servidor web\sectionmark{Recuperación de datos}}
+\sectionmark{Recuperación de datos}
+
+\chapter{Pipes}
+
+\section{Definición}
+
+\section{Creación de pipes personalizadas}
+
+\end{document}

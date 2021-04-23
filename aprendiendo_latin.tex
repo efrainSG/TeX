@@ -1,0 +1,104 @@
+\documentclass[landscape,12pt,twocolumn]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\usepackage{graphicx} % support the \includegraphics command and options
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\title{Aprendiendo latín}
+\author{Efraín Serna Gracia}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section*{Introducción}
+Estoy aprendiendo latín y tomo varias fuentes, entre páginas donde comentan frases de uso corriente como de cursos más formales, un grupo de aprendizaje de latón en Facebook y un libro que en el mismo grupo utilizan como material de curso.\\
+
+Específicamente: \emph{LINGVA LATINA PER SE ILLVSTRATA - Pars I - Familia Romana}, también el libro de Latín Elemental, segunda edición, de René Muñoz De La Fuente
+\section{Comenzando}
+En el latín se tiene seis casos que se relacionan con diferentes preposiciones y elementos de la oración, a saber:
+\begin{description}
+\item[Nominativo] \{el/la/lo y un/una\} Refiere al nombre de las cosas, el sujeto en una oración simple. Por ejemplo: \emph{la rosa, el águila, una sala, un camino}.
+\item[Genitivo] \{de\} Para indicar posesión, materia o cualidad. Por ejemplo: camino \emph{del agua}, sala \emph{de la clase}, libro \emph{de sabiduría}, casa \emph{de alegría}.
+\item[Dativo] \{a/para\}Indica sobre quien recae  de manera indirecta el efecto de lo expresado. Por ejemplo: rosas \emph{para la iglesia}.
+\item[Acusativo] \{a\}. Por ejemplo: \emph{}
+\item[Vocativo]\{¡oh!\}. Por ejemplo: \emph{}
+\item[Ablativo]\{con/en/por\}. Por ejemplo: \emph{}
+\end{description}
+\subsection{Casos de la primera declinación}
+Las siguientes terminaciones se utilizan para cada uno de los casos especificados.
+\begin{description}
+\item[-a] Nominativo singular ($N_S$), Vocativo singular ($V_S$), Ablativo Singular ($Ab_S$).
+\item[-ae] Genitivo Singular ($G_S$), Dativo Singular ($D_S$), Nominativo Plural ($N_P$), Vocativo Plural ($V_P$).
+\item[-am] Acusativo Singular ($Ac_S$).
+\item[-arum] Genitivo Plural ($G_P$).
+\item[-is] Dativo Plural ($D_P$), Ablativo Plural ($Ab_P$).
+\item[-as] Acusativo Plural ($Ac_P$).
+\end{description}
+
+\subsection{Vocabulario}
+\begin{tabular}{ll}
+Ecclesia (\emph{Iglesia}) & Columba (\emph{Paloma})\\
+Lácrima (\emph{Lágrima}) & Via (\emph{Camino})\\
+Schola (\emph{Clase}) & Aula (\emph{Sala})\\
+Porta (\emph{Puerta}) & Sapientia (\emph{Sabiduría})\\
+Silva (\emph{Selva}) & Áquila (\emph{Águila})\\
+Aqua (\emph{Agua}) & Laetitia (\emph{Alegría})\\
+Vita (\emph{Vida}) & Puella (\emph{Niña})\\
+Tábula (\emph{Pizarrón}) & Mensa (\emph{Mesa})\\
+Fenéstra (\emph{Ventana}) & Sella (\emph{Silla}).
+\end{tabular}
+
+\section{Algo para el día a día}
+\begin{tabular}{rl}
+Salve & Hola (a una persona)\\
+Salvete & Hola (a varias personas)\\
+Vale & Adiós (a una persona)\\
+Valete & Adiós (a varias personas)\\
+Ut vales? & ¿Cómo estás?\\
+Optime valeo & Estoy muy bien\\
+Bene valeo & Estoy bien\\
+Satis bene valeo & Estoy más o menos bien\\
+Non ita bene valeo & No estoy muy bien\\
+Pessime valeo & Estoy muy mal\\
+Gratias ago & Gracias
+\end{tabular}
+
+\section{Familia Romana}
+Interesante porque aunque todo está en latín, comienza con oraciones simples como \emph{Italia in Europa est} que se traduce como \emph{Italia en Europa está} e \emph{Italia et Graecia in Europa sunt} como \emph{Italia y Grecia en Europa están} o \emph{Italia est in Europa} que se traduce como \emph{Italia está en Europa}.\\
+
+Su correspondiente negación con ejemplos como \emph{Aegyptus in Europa non est} que significa (literalmente) \emph{Egipto en Europa no está}, en plural sería \emph{Graecia et Roma non in Hispania sunt}.\\
+
+Para preguntar es \emph{Estne Roma in Gallia?} que significa \emph{¿Roma está en Galia?}, o \emph{Ubi est Roma?} para decir \emph{¿Dónde está Roma?}.\\
+
+\tableofcontents
+
+\end{document}

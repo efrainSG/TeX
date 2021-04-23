@@ -1,0 +1,298 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This file is a template using the "beamer" package to create slides for a talk or presentation
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+% - Style is ornate.
+
+% MODIFIED by Jonathan Kew, 2008-07-06
+% The header comments and encoding in this file were modified for inclusion with TeXworks.
+% The content is otherwise unchanged from the original distributed with the beamer package.
+
+\documentclass{beamer}
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[spanish]{babel}
+% or whatever
+
+\usepackage[utf8]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+
+\title[Clase de mate] % (optional, use only with long paper titles)
+{Clase de mate}
+
+%\subtitle{Presentation Subtitle} % (optional)
+
+%\author%[Author, Another] % (optional, use only with lots of authors)
+%{F.~Author\inst{1} \and S.~Another\inst{2}}
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+%\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
+%{
+%  \inst{1}%
+%  Department of Computer Science\\
+%  University of Somewhere
+%  \and
+%  \inst{2}%
+%  Department of Theoretical Philosophy\\
+%  University of Elsewhere}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[Short Occasion] % (optional)
+%{Date / Occasion}
+
+%\subject{Ecuación de reta pendiente ordenada en el origen}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+\section{Ecuación de recta con forma pendiente ordenada en el origen}
+
+%\subsection[Short First Subsection Name]{First Subsection Name}
+
+\begin{frame}{Ecuación de la recta.}{Pendiente y ordenada en el origen.}
+  % - A title should summarize the slide in an understandable fashion
+  %   for anyone how does not follow everything on the slide itself.
+\begin{eqnarray}
+P = (-2,-1)\\
+Q = (0, 2)
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}{Ecuación de la recta.}{Pendiente y ordenada en el origen.}
+  % - A title should summarize the slide in an understandable fashion
+  %   for anyone how does not follow everything on the slide itself.
+\begin{equation}
+\begin{array}{rcl}
+P & = & (-2,-1)\\
+\\
+Q & = & (0, 2)\\
+\\
+m & = & \dfrac{Y_Q-Y_P}{X_Q-X_P}\\
+\\
+m & = & \dfrac{2-(-1)}{0-(-2)}=\dfrac{2+1}{0+2}=\dfrac{3}{2}
+\end{array}
+\end{equation}
+\end{frame}
+
+\begin{frame}{Ecuación de la recta.}{Pendiente y ordenada en el origen.}
+  % - A title should summarize the slide in an understandable fashion
+  %   for anyone how does not follow everything on the slide itself.
+\begin{equation}
+\begin{array}{rcl}
+Q & = & (0, 2)\\
+\\
+m & = & \dfrac{3}{2}\\
+\\
+y & = & mx + b \rightarrow (b = Y_Q)\\
+\\
+y & = & \dfrac{3}{2}x + 2
+\end{array}
+\end{equation}
+\end{frame}
+
+\section{Funciones y ángulos}
+
+\begin{frame}{funciones y ángulos}
+\begin{equation}
+\begin{array}{rcl}
+\theta & \in & Cuadrante_{II}\\
+\\
+tan(\theta) & = & \dfrac{-4}{3}
+\end{array}
+\end{equation}
+\end{frame}
+
+\begin{frame}{funciones y ángulos}
+\begin{equation}
+\begin{array}{rcl}
+\theta & \in & Cuadrante_{II}\\
+\\
+tan(\theta) & = & \dfrac{-4}{3}\\
+\theta & = & tan^{-1}\left(\dfrac{-4}{3}\right) = -53.1301\\
+\\
+\theta & = & -53^\circ 7 ' 48.368"
+\\
+\end{array}
+\end{equation}
+\end{frame}
+
+\begin{frame}{funciones y ángulos}
+\begin{equation}
+\begin{array}{rcl}
+\theta & = & tan^{-1}\left(\dfrac{-4}{3}\right) = -53.1301\\
+\\
+\theta & = & -53^\circ 7 ' 48.368"
+\\
+cos(\theta) & = & 0.6 = \dfrac{6}{10} = \dfrac{3}{5}
+\end{array}
+\end{equation}
+\end{frame}
+
+\section{Premisas y proposiciones}
+\begin{frame}
+\begin{equation}
+\begin{array}{rcl}
+Q & \Rightarrow & \neg P \land R\\
+Q & : & \text{Llueve}\\
+P & : & \text{Podré ir al cine}\\
+\neg P & : & \text{NO Podré ir al cine}\\
+R & : & \text{Mi novia se enojará}\\
+
+\end{array}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\begin{equation}
+\begin{array}{c|c|c}
+\exists \text{: Existe} & \forall \text{: Para todo} & \implies\text{: Implica o entonces}\\
+\iff \text{: sí y solo sí} & \lor \text{: O} & \land\text{: Y}\\
+\neg\text{: Negación} & \sim\text{: Negación} & \\
+\nexists\text{:No existe}
+\end{array}
+\end{equation}
+
+\begin{equation}
+\begin{array}{ccc}
+\neg\forall x P(x) & \equiv & \exists x \neg P(x)\\
+\neg\exists x P(x) & \equiv & \forall x \neg P(x)\\
+\neg(A \land B) & \equiv & \neg A \lor \neg B\\
+\neg(A \lor B) & \equiv & \neg A \land \neg B
+\end{array}
+\end{equation}
+\end{frame}
+
+\section{Raíces cuadradas}
+\begin{frame}
+\begin{equation}
+x = 256
+\end{equation}
+Calcular su raíz cuadrada
+\begin{equation}
+\begin{array}{l|rcl}
+256 & 2 \\
+\hline
+128 & 2\\
+64 & 2\\
+32 & 2 & \Rightarrow & 2 \times 2\times 2\times 2\times 2\times 2\times 2\times 2\\
+16 & 2 & & 2^2 \times2^2 \times2^2 \times2^2 \\
+8 & 2 & & \\
+4 & 2& & \sqrt{2^2 \times2^2 \times2^2 \times2^2} = 2\times 2\times 2\times 2\\
+2 & 2& & 2\times 2\times 2\times 2 = 16\\
+1
+\end{array}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\begin{equation}
+x = 144
+\end{equation}
+Calcular su raíz cuadrada
+\begin{equation}
+\begin{array}{l|rcl}
+144 & 2 \\
+\hline
+72 & 2\\
+36 & 2\\
+18 & 2 & \Rightarrow & 2 \times 2\times 2\times 2\times 3\times 3\\
+9 & 3 & & 2^2 \times2^2 \times3^2 \\
+3 & 3 & & \\
+1 & & & \sqrt{2^2 \times2^2 \times3^2 } = 2\times 2\times 3\\
+ & & & 2\times 2\times 3 = 12\\
+
+\end{array}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\begin{equation}
+x = 144
+\end{equation}
+Calcular su raíz cuadrada
+\begin{equation}
+\begin{array}{rcl}
+\sqrt{144} & = & \{18,9\}\rightarrow 13 \rightarrow 12
+\end{array}
+\end{equation}
+\end{frame}
+
+\end{document}
+
+
