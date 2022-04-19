@@ -1,6 +1,278 @@
 \chapter{Álgebra}
 \section{Conceptos básicos}
+Al elemento más simple en álgebra se le conoce como término. Este consta de:
+\begin{description}
+\item[Signo.] Puede ser positivo o negativo, colocado a la izquierda. Es frecuente que el signo positivo no se dibuje, salvo para separar términos en una expresión.
+\item[Coeficiente.] Es un número real colocado a la izquierda de las literales. Puede ser expresado como número entero, fraccionario o con decimales. Hay algunos símbolos que los pueden representar, por ejemplo: $e$ o $\pi$.
+\item[Literal.] Una o más, en forma consecutiva, sin signos que las separe, colocadas a la derecha del coeficiente.
+\item[Exponente.]Término que está colocado del lado derecho y arriba del coeficiente o de las literales.
+\end{description}
+Ejemplo de términos:
+\begin{center}
+$$
+\begin{array}{ccc}
+2a^2b & -13bd^3 & -1\\
+a^3b^4 & -13^{ax}b^{2x} & a^3b^4
+\end{array}
+$$
+\end{center}
+\section{Lenguaje matemático}
+Es un lenguaje que permite construir expresiones matemáticas a partir de un lenguaje natural y comprenderlas.
+$$
+\begin{array}{|ll|ll|}
+\hline
+\text{Un número.} & a & \text{El doble de un número.} & 2a \\
+& & & \\
+\hline
+\text{Dos números distintos.} & a, b & \text{El doble de la suma de} & 2(a+b) \\
+& &\text{dos números.}& \\
+\hline
+\text{La suma de dos números.} & a + b & \text{El doble de la resta de} & 2(a-b) \\
+& &\text{dos números.}& \\
+\hline
+& & \text{El producto de dos} & \\
+\text{La resta de dos números.} & a - b &\text{ números más el producto} & ab+cd \\
+& &\text{de otros dos números.} & \\
+\hline
+\text{El producto de} & & \text{El producto de dos números} & \\
+\text{dos números.}& ab, (a)(b) &\text{menos el producto de otros} & ab-cd \\
+& &\text{dos números.} & \\
+\hline
+ & & \text{El cociente de dos números} & \\
+\text{La mitad de un número.} & \dfrac{a}{2} &\text{más el cociente de otros dos}& \dfrac{a}{b}+\dfrac{c}{d} \\
+& &\text{números.}& \\
+\hline
+\text{El cociente de dos} & & \text{El cociente de dos números} & \\
+\text{números.}& \dfrac{a}{b}, a \div b &\text{menos el cociente de otros}& \dfrac{a}{b}-\dfrac{c}{d} \\
+& &\text{dos números.} & \\
+\hline
+\text{El cuadrado de un} & & \text{La suma de dos números} & \\
+\text{número.}& a^2 &\text{por la suma de otros dos} & (a+b)(c+d) \\
+& &\text{números.} & \\
+\hline
+\text{La semi suma de dos} & & \text{La resta de dos números} & \\
+\text{números.}& \dfrac{a+b}{2} &\text{por la resta de otros dos}& (a-b)(c-d) \\
+& &\text{números.} & \\
+\hline
+\text{La semi resta de dos} & & & \\
+\text{números.}& \dfrac{a-b}{2} & & \\
+& & & \\
+\hline
+\end{array}
+$$
+Por ejemplo:
+\begin{enumerate}
+\item En una bolsa hay 5 canicas rojas, 4 canicas azules y 8 canicas blancas:\\
+Las canincas se van a representar con letras, a saber:
+\begin{itemize}
+\item canicas rojas $\Rightarrow r$
+\item canicas azules $\Rightarrow a$
+\item canicas blancas $\Rightarrow b$
+\end{itemize}
+La expresión que indica el total de canicas de la bolsa será: $5r+4a+8b$
+\item Para calcular la superficie de un terreno rectangular se multiplica lo que mide de largo por lo que mide de ancho, es decir \emph{el producto de dos números}, lo que resulta en: $S=bh$.
+\item La velocidad a la que un auto se mueve se obtiene al dividir la distancia que ha recorrido entre el tiempo empleado en recorrerla (el cociente de dos números), lo que resulta en $velocidad=\dfrac{distancia}{tiempo}$ o en $v=\dfrac{d}{t}$.
+\item Para calcular la aceleración se realiza la división de la resta de la velocidad final menos la velocidad inicial entre el tiempo empleado: $aceleracion=\dfrac{velocidad_{final} - velocidad_{inicial}}{tiempo}$ o lo que es lo mismo $a=\dfrac{v_f - v_i}{t}$
+\end{enumerate}
+\subsection{Ejercicios}
+\begin{enumerate}
+\item El semiproducto de dos números. ¿Dónde se ha visto anteriormente la expresión resultante?
+\item El semiproducto de: la suma de dos números multiplicada por un tercer número. ¿Dónde se ha visto anteriormente la expresión resultante?
+\item Como en el ejemplo de las canicas, usando \emph{u} para ``unos'', \emph{d} para ``dos'' y \emph{t} para ``tres'', ¿cuál es la expresión para indicar cuántos ``unos'', ``dos'' y ``tres'' hay en los números entre el $1$ y el $50$?
+\item Una habitación mide 10 pies con 7 pulgadas de largo y 8 pies con 8 pulgadas de ancho. ¿Cuál es la expresión que indica el cálculo de su superficie?
+\end{enumerate}
 \section{Sumas y restas}
+Para realizar sumas y restas algebráicas sólamente se pueden sumar y restar cantidades que tengan las mismas literales con los mismos exponentes. A continuación se ejemplifica el proceso:\\
+
+$
+\begin{array}{l|{l}}
+3a+4b-5a+2b+7a-10b= & \\
+3a-5a+7a+4b+2b-10b= &  \text{Se ordena agrupando por letras.}\\
+5a-4b & \text{Se suman/restan las cantidades.}\\
+ & \text{Si quedan términos con letras diferentes,}\\
+ & \text{se dejan indicados así.}
+\end{array}
+$\\
+
+\subsection{Ejercicios}
+$$
+\begin{array}{l}
+2a+3b =\\
+4b-5c+3b+8c-12b=\\
+-4x+7y-18x+5y-9x+17y-5x+8y=\\
+4x^2y+5x^3-8x^2y+3y-10x+15y^3+5x^2y-8x+19y-20x^2y=
+\end{array}
+$$
+\section{Sumas y restas con signos de agrupación}
+Los signos de agrupación sirven para modificar el orden o \emph{jerarquía} de las operaciones. Para resolverlas se hace desde el par agrupador que está más adentro.\\
+Los signos de agrupación son:\\
+\begin{center}
+$$
+\begin{array}{ccc}
+[a+b+c] & \{a+b+c\} & (a+b+c)\\
+\langle a+b+c \rangle & |a+b+c| & \|a+b+c\|\\
+\overbrace{a+b+c} & \overline{a+b+c} & \underbrace{a+b+c}\\
+ & \underline{a+b+c} & \\
+\end{array}
+$$
+\end{center}
+
+Hay que tener dos consideraciones. Los signos $+$ y $-$ separan los términos agrupados, para estos casos tenemos:
+\begin{center}
+$
+\begin{array}{ccl}
+-(2x-3) & -(-4y+2) & \text{Cuando se tienen signos de agrupación precedidos por}\\
+-2x+3 & 4y-2 & \text{signo negativo. En este caso se quitan los signos de}\\
+& & \text{agrupación y el signo negativo, y se invierten los signos}\\
+ & & \text{de la expresión dentro de los signos de agrupación.}\\
+\hline
++(2x-5y) & +(-4y+3z) & \text{Cuando se tienen signos de agrupación precedidos por}\\
+2x-5y & -4y+3z & \text{signo positivo. En este caso simplemente se quita el}\\
+ & & \text{signo junto con los agrupadores}\\
+
+\end{array}
+$
+\end{center}
+\subsection{Ejercicios}
+$
+\begin{array}{l}
+4xy+14z-(5xy+3z)+[5xy-8z-(8xy+3z)]=\\
+2ac+(5b-9ac-34c)+8ac+(16c-19ab)-5c=\\
+\end{array}
+$
+
 \section{Multiplicaciones}
+En álgebra se expresa la multiplicación poniendo números y literales juntos, sin signos de suma o resta entre ellos, también encerrándolos entre signos de agrupación y colocándolos sin signos de suma o resta en medio. Así pues, las siguientes expresiones indican multiplicaciones en forma válida.
+\begin{center}
+$$
+\begin{array}{|c|c|c|c|c|}
+\hline
+ & & & & \\
+3x & ab & -4xy & 5x(a+b) & (2x-y)4x-2y)\\
+ & & & & \\
+\hline
+\end{array}
+$$
+\end{center}
+Antes de proceder con la operación se deben aprender las siguientes reglas o leyes:
+De los signos:
+\begin{center}
+$$
+\begin{array}{|lcr|}
+\hline
+(+)(+) & = & (+)\\
+(-)(+) & = & (-)\\
+(+)(-) & = & (-)\\
+(+)(+) & = & (+)\\
+\hline
+\end{array}
+$$
+\end{center}
+
+De los exponentes:
+\begin{center}
+$$
+\begin{array}{|l|l|l|l|}
+\hline
+ & & & \\
+a^0=1 & a^1 = a & (a^n)(a^m)=a^{n+m} & (a^n)^m = a^{nm}\\
+ & & & \\
+\hline
+\end{array}
+$$
+\end{center}
+\subsection{Multiplicación de monomios}
+Para realizar la multiplicación se operan: signos con signos, números con números y mismas letras con mismas letras, de la forma siguiente. Se hace notar que un término que no tiene signo positivo o negativo visiblemente, es positivo por convención.
+\begin{center}
+$$
+\begin{array}{|c|c|c|}
+\hline
+ & & \\
+(3a)(4)=12a & (-5y)(4x)=-20xy & (6x)(-12x^2) = -72x^3\\
+ & & \\
+\hline
+\end{array}
+$$
+\end{center}
+
+\subsubsection{Ejercicios}
+$$
+\begin{array}{l}
+3x(5)=\\
+4ab(4)=\\
+3c(2d)=\\
+(5a)(4a^4)=\\
+\end{array}
+$$
+
+\subsection{Multiplicación de monomio por polinomio}
+Se multitplica primero el monimio por el primer término del polinomio de la misma forma que en la multiplicación de un monomio por otro monomio, después se multiplican los signos y luego se multiplica el siguiente término por el monomio, y así hasta completar.
+\subsubsection{Ejercicios}
+$$
+\begin{array}{l}
+-5(3+2c)=\\
+-3c(2a+5)=\\
+-4x(3x+2y-4)=\\
+4x(-3x+2y-4xy+5)=\\
+\end{array}	
+$$
+
+\subsection{Multiplicación de polinomios}
+\subsubsection{Ejercicios}
+$$
+\begin{array}{l}
+(2a+5)(3+2c)=\\
+(2a+5)(3x+2y-4)=\\
+(3x+2y-4)(-3x+2y-4xy+5)=\\
+\end{array}
+$$
+
+\subsection{Productos notables - Cuadrado de un binomio}
+Estos se resuelven de una sencilla forma, para ello se siguen estos pasos:
+\begin{enumerate}
+\item Se eleva al cuadrado el primer término
+\item Se suma: el doble producto del primer término por el segundo término
+\item Se suma el cuadrado del segundo término
+\end{enumerate}
+
+\subsubsection{Ejercicios}
+$$
+\begin{array}{l|l|l}
+(x+v)^2=   & (2a+3b)^2=   & (5a+b)^2=\\
+(2x-z)^2=  & (3b - 5c)^2= & (a-3f)^2=\\
+(ab-3)^2=  & (10a+2b)^2=  & (2c+4d)^2=\\
+(3y+5z)^2= & (-5a+b)^2=   & (xy-3)^2=\\
+(-a+2)^2=  & (-3b-4c)^2=  & (x-8)^2=
+\end{array}
+$$
+
+\subsection{Productos notables - Binomios conjugados}
+Se reconocen por tener cantidades iguales y tener UN signo diferente.
+Estos se resuelven rápidamente siguiendo estos pasos:
+\begin{enumerate}
+\item Se calcula el cuadrado del primer término.
+\item Se calcula el cuadrado del segundo término.
+\item Se coloca signo \emph{negativo} para el término que tiene diferente signo y signo \emph{positivo} para el término que tiene signos idénticos.
+\end{enumerate}
+
+\subsubsection{Ejercicios}
+$$
+\begin{array}{l|l|l}
+(x-v)(x+v) = & (2a+3b)(2a+3b)= & (5a+b)(5a-b)=\\
+(2x-z)(2x+z)= & (3b - 5c)(3b-5c)= & (a-3f)(a+3f)=\\
+(ab-3)(ab+3)= & (10a+2b)(10a-2b)=  & (2c+4d)(2c-4d)=\\
+(3y+5z)(3y-5z)= & (-5a+b)(5a+b)= & (xy-3)(xy+3)=\\
+(-a+2)(a+2)= & (-3b-4c)^2=  & (x-8)(x+8)=
+\end{array}
+$$
+
 \section{Divisiones}
+En álgebra se expresa la división de la siguiente manera:
+
 \section{Fracciones}
+
+\section{Ecuaciones enteras de primer grado}
+\section{Sistemas de ecuaciones de primer grado}
+\section{Ecuaciones fraccionarias de primer grado}
+\section{Factorización}
+\section{Ecuaciones de segundo grado}

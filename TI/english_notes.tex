@@ -1,21 +1,23 @@
-\documentclass[12pt]{book} % use larger type; default would be 10pt
+\documentclass[11pt]{article} % use larger type; default would be 10pt
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 
 %%% PAGE DIMENSIONS
 \usepackage{geometry} % to change the page dimensions
-\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
 
 \usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{multicol}
+\usepackage{tipa}
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
 %%% PACKAGES
 \usepackage{booktabs} % for much better looking tables
 \usepackage{array} % for better arrays (eg matrices) in maths
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
-\usepackage[hidelinks]{hyperref}
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-% These packages are all incorporated in the memoir class to one degree or another...
+\usepackage[usenames]{xcolor}
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
@@ -26,8 +28,6 @@
 
 %%% SECTION TITLE APPEARANCE
 \usepackage{sectsty}
-\usepackage{amsmath}
-\usepackage[spanish]{babel}
 \allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
 % (This matches ConTeXt defaults)
 
@@ -41,36 +41,53 @@
 
 %%% The "real" document content comes below...
 
-\title{Brief Article}
-\author{The Author}
+\title{English notes}
+\author{Efra}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
 \begin{document}
-\begin{titlepage}
-\centering
-{\bfseries\LARGE Antología de matemáticas\par}
-{Con ejercicios \par}
-\vspace{1cm}
-{Aritmética, Geometría.\par}
-{Trigonometría, Álgebra, Geometría Analítica.\par}
-{Cálculo Diferencial e Integral.\par}
-{Álgebra Lineal.\par}
-\vspace{1in}
-{\scshape\Large M. C. Y T. E. Efraín Serna Gracia.\par}
-\vfill
-{\scshape\Large MMXXI}
-\end{titlepage}
+\maketitle
 \tableofcontents
 
-\include{Preliminares}
-\include{01_Aritmetica}
-\include{02_Geometria}
-\include{03_Algebra}
-\include{04_Trigonometria}
-\include{05_Geometria_Analitica}
-\include{06_Calculo_Diferencial}
-\include{07_Calculo_Integral}
-\include{08_Algebra_Lineal}
-\include{Respuestas}
+\include{Vocabulary.tex}
+
+\include{pronunciation.tex}
+
+\include{phrasal_verbs.tex}
+
+\section{Weather}
+\begin{multicols}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+Sunshine & Sunny & \emph{[N/A]} \\
+\hline
+Rain & Rainy & Raining\\
+\hline
+Snow & Snowy & Snowing\\
+\hline
+Cloud & Cloudy & \emph{[N/A]}\\
+\hline
+\end{tabular}
+
+\begin{itemize}
+\item because $\rightarrow$ because of $\rightarrow$ due to
+\end{itemize}
+\end{multicols}
+
+\include{phrases.tex}
+
+\section{Other topics}
+\begin{multicols}{2}
+\begin{itemize}
+\item Because of\dots
+\item Due to\dots
+\item \textcolor{blue}{If} \emph{past simple tense sentence} \textcolor{red}{\emph{noun/pronoun}} \textcolor{blue}{would} \emph{rest of the sentence in present simple tense}.
+\item \textcolor{blue}{If \emph{pronoun} hadn't\dots}
+\item What would \emph{pronoun} have \emph{past tense verb} if \emph{pronoun} hadn't \emph{past tense verb} rest-of-the-question?
+\end{itemize}
+\end{multicols}
+
+\include{describing.tex}
+
 \end{document}

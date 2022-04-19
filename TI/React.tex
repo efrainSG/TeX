@@ -1,0 +1,178 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{React, apuntes.}
+\author{Efra}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section{Notas}
+
+\subsection{Components and reactive updates}
+\begin{enumerate}
+\item Virtual DOM nodes and JSX
+\item Props and State
+\begin{itemize}
+\item (props) $=>$ \{\}
+\item $[val, setVal]$ = useState(initialVal)
+\item Immutable props. Mutable state
+\end{itemize}
+\item ReactDOM.render
+\begin{itemize}
+\item $<Component/>$
+\item DOM node
+\end{itemize}
+\item React events (onClick, onSubmit, \dots)
+\item Functions and class components
+\end{enumerate}
+
+\section{Ejemplo 1}
+\begin{verbatim}
+function Display(props) {
+  return (
+    <div>{props.message}</div>
+  );
+}
+
+function Button(props) {
+  const handleClick = () => props.onClickFunction(props.increment);
+  return(
+    <button onClick={handleClick}>
+      +{props.increment}
+    </button>
+  );
+}
+
+function App(){
+  const [counter, setCounter] = useState(42);
+  const incrementCounter = (incrementValue) => setCounter(counter+incrementValue);
+  return (
+    <div>
+      <Button onClickFunction={incrementCounter} increment={1}/>
+      <Button onClickFunction={incrementCounter} increment={5}/>
+      <Button onClickFunction={incrementCounter} increment={10}/>
+      <Button onClickFunction={incrementCounter} increment={100}/>
+      <Display message={counter} />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('mountNode'),
+);
+\end{verbatim}
+
+\section{Ejemplo 2}
+\begin{verbatim}
+const render = () => {
+  document.getElementById('mountNode').innerHTML = `
+<div>
+  hello, HTML
+  <input />
+  <pre>${(new Date).toLocaleTimeString()}</pre>
+</div>
+`;
+
+ReactDOM.render(
+  React.createElement(
+    "div",
+    null,
+    "Hello, React",
+    React.createElement('input', null),
+    React.createElement('pre', null,
+                        (new Date).toLocaleTimeString()),
+    ),
+  document.getElementById('mountNode2'),
+  );
+}
+
+setInterval(render, 1000);
+\end{verbatim}
+
+\section{Ejemplo 3}
+\begin{verbatim}
+console.log(this);
+
+const testerObj = {
+  func1: function() {
+    console.log('func1', this);
+  },
+  
+  func2: () => {
+    console.log('func2', this);
+  },
+};
+
+testerObj.func1();
+testerObj.func2();
+\end{verbatim}
+Consola
+\begin{verbatim}
+Console was cleared
+VM812:8 {id: 'PLAYGROUND'}
+VM812:11 func1 {func1: ƒ, func2: ƒ}
+VM812:14 func2 {id: 'PLAYGROUND'}
+\end{verbatim}
+\section{Ejemplo 4}
+
+\section{Ejemplo 5}
+
+\section{Ejemplo 6}
+
+\end{document}
