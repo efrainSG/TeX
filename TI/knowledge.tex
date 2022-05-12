@@ -1,0 +1,351 @@
+\section{Professional interviewing myself}
+\begin{multicols}{2}
+
+\begin{enumerate}
+%\item Si se requiere utilizar otro conjunto de separadores, ¿Qué cambios hay que realizar en el código?
+%\item Si tengo que enfrentar un requerimiento con una tecnología nueva para mí, ¿Cuál es mi forma de proceder?
+%\item Si en mi equipo, después de unos días de acoplamiento no me asignan tarea, ¿Cuál es mi forma de proceder?
+%\item ¿Cuál ha sido mi experiencia con Protractor y Cucumber?
+%\item ¿Por qué mi interés de aprenderlos?
+%\item Preguntaron por algún error que, en mi experiencia, haya cometido y cómo lo afronté
+%\item ¿Qué aprendí de ese error?
+%\item Comentaron sobre un posterior uso de AWS y si tengo experiencia ahí.
+
+\item What differences there are between the \emph{foreach} and \emph{for} loops? The first one consumes more resources than the second one. But depending of each situation, you can choice between them.
+
+\item What is inheritance? it's the ability of create classes taking another classes as base, in other words, it allows to derive new classes inheriting the properties, methods and events from other prevoiusly defined classes or interfaces.
+
+\item What is polymorphism? it's the ability to define different behaviors for a method according to its parameters. There are 2 types of polymorphism:
+\begin{itemize}
+\item Overloading is done using the same method name but with different signature.
+\item Overriding is done by implementing a new behavior in the child class for a method defined in the parent class.
+\end{itemize}
+
+\item What is abstraction? Consists in making accesible to the user only the things that really matters. The user doesn't need to know how certain value is calculated or what others methods exist inside the class. In C\#, abstract classes can be defined by using the \emph{abstract} keyword and interfaces.
+
+\item What is encapsulation? It's about hidding data or functions that the user isn't allowed to manipulate leaving only those methods defined as public and the data accesible only by properties. All those thigns must be grouped into a class.
+
+\item What is an interface? It's a kind of contract that obligates a class to implement the methods and properties specified by it. It only contains properties and method signatures but not contains implentation. The use of interfaces allows multiple inheritance whereas by classes only allows single inheritance.
+
+\item What is an abstract class? It's a particular type of class that contains abstract methods without implementation and regular methods with implementation. This class can't be instantiated and it must be inherited by another class and the child class needs to provide the implementation for the abstract methods.
+
+\item Difference between interface and an abstract class? An interface doesn't have any implementation while an abstract class can have implementation of methods. One class can be inherited from only one abstract class but can inplements multiple interfaces.
+
+\item What is the Singleton pattern? It's a creational design pattern that is used to restrict to only one instance of a class available to all clients. It's possible to implement it by declaring a static singleton instance and making the constructor private and create a \emph{getInstance} method that returns the existing instance if it exists and if not it creates a new singleton instance.
+
+\item What is the Factory pattern? It's a creational design pattern that defines an interface for creating objects and the client decides which class to instantiate. It hides the implementation logic for the creation of objects from the client.
+
+\item What is the Facade pattern? It's a structural design pattern used to provide a simplified interface to a complex subsystem or set of subsystems.
+
+\item What is the adapter pattern? This pattern consists in the creation of a class that is capable to contain a smaller class as a property, and its properties matches with other bigger class which it has to colaborate with.
+
+\item What are the SOLID principles?
+\begin{description}
+\item[Single resposibility] Each class must be in charge of only one task, the same with the methods, each one must be responsible for only one job.
+
+\item[Open-close]  The classes must be closed to modifications and at the same time opened to changes and new functions. One way could be declaring the clean and functional class as an abstract one, so, new classes can be created derived from the abstract class to implement the changes.
+
+\item[Liskov substitution] In fact, this principle says: everything that can be done by a class, then its children classes can do regardless of the child class tha it's been used. In other words, if a class is been used, then it's possible change it by an object instanciated from a derived class of the class originally used.
+
+\item[Interface segregation] It's better create smaller well delimited interfaces that can be implemented in the classes rather than fewer bigger interfaces, this allows to implement only those methods that are required instead of implements all the methods, including the unnecessary.
+
+\item[Dependency inversion] Refers to deacoplate the code between classes, it means that each class doesn't depends upon other classes to do its job and its recommended the use of constructors with interfaces instead of specific classes.
+
+\end{description}
+
+\item What is static? Declared variables or methods as static are globally accessible without creating an instance of the class.
+
+\item What is the stack? Is a space inside the memory that stores methods, parameter, variables according the use of them and in a LIFO structure (Last-in, First-out). When a new method is invoked, its added to the stack and after that its variables are pushed in the top of the stack. When the method finishes, the stack pops-out them.
+
+\item What is the heap? Is another space in the memory with te porpuse of allocate the objects and their references are stored in the stack.
+
+\item What is a Jagged Array? It is an array of arrays where each element can have different length. This is opposite to multidmiensional arrays where each element is an array and every array has exactly the same amount of items.
+
+\item What is serialization? Serialization is the process of converting an object into a form that can be persisted or transported like JSON, XML or binary.
+
+\item What is deserialization? It is the process of converting an stream of data into an object.
+
+\item What is a reference type? Reference type is a pointer to another memory location where the Object is being stored.
+
+\item What is a value type? A value type holds a data value within its own memory space.
+
+\item What is boxing? It's about cast a specifict class object as a superclass Object.
+
+\item What is unboxing? It's de opposite to boxing and refers to extract from an Object to its specific original class.
+
+\item What are Generics? Generics allow to create classes, methods and properties using the type parameter without the specific data type. A type parameter is a placeholder for a particular type specified when creating an instance of the generic type. Generics increase the reusability of the code. You don't need to write code to handle different data types. Generics are type-safe. You get compile-time errors if you try to use a different data type than the one specified in the definition.
+Generic has a performance advantage because it removes the possibilities of boxing and unboxing.
+
+\item What are Delegates? They are references to methods, this allows to associate certain variable types to those methods, in this way they can be used in the responses of the methods. Multicast delegate? It is a delegate that points to multiple methods.
+
+\item Which verbs do you know and when do you use those verbs?
+\begin{description}
+\item[GET] it's used in methods that retrieve information.
+\item[POST] if the method do a data insertion, this verbs must be used.
+\item[PUT] To update of almost all the data of the object.
+\item[DELETE] is used to perform a deletion of the data and return a result.
+\item[PATCH] updates some data of the object.
+\end{description}
+
+\item What is REST? Representational State Transfer, it means, the data transfer must be uniform, the API must avoid expose too much server details, client \& server must be separated, the request must be stateless.
+
+\item What is SOAP? it means \emph{Simple Object Access Protocol} and refers to a XML based structure to represent, manage and transfer data objects across the internet.
+
+\item What is CORS? It's an specification for information sharing between trustworthy domains. By default sharing information between domains is not allowed in terms of security but the confidence of the involved domains can be specified in the configuration to allow CORS.
+
+\item How can you implement security for an API? Through the attribute Authorize and generating tokens that can be passed as parameters in the headers of each method call to de API, this token can be authenticated.
+
+\item Can you explain media type formatters?They are built-in classses used to serialize informathion therefore, the APIs can understand the request data format and send it in the format as the client expects.
+
+\item What are WebApi Filters? They are attributes that allows to implement certain added logic before or after API methods execution. Those filters can be applied to the API or to some moethods. Every filter must implements the IFilter interface, basically.
+
+\item How do you consume an API from C\#? thorugh an HttpClient
+
+\item What is the difference between ApiController and Controller? An APIController is a controller specialized to return data following a different routing scheme providing REST-ful by convention. Whereas, a Controller is capable to return a view as result.
+
+\item How can you send parameters to an endpoint?
+
+\item API Gateway
+
+\item What is a microservice? Software development method that structures an application as a collection of services that interact between them and where each microservice is focused on a specific domain, have its own database and they are loosely coupled. They are highly scabale and has one dedicated team, and the faults remains isolated. Its possible to develop each microservice in different technologies and languages, and they still can work together through APIs. In contrast, the communication can be difficult, also testing and debugging, and at the same time, develop microservices involves more resources.
+
+\item What is a monolith application? It's a system designed as a whole big block that perform all the functionalities for the application. at te beginning, the application is easy to debug, modify, test and deploy, but along the time and after adding more and more capabilities, the risk of modify incorrectly increase, and the deployment must be done of the whole application.
+
+\item Amazon Web Services
+\begin{description}
+
+\item[S3] This service provide buckets or storage spaces to storage resources such as images, videos and other type of files. Those files can be accessed, previous authorization, by other servies and applications.
+
+\item[Load Balancer] Is a services that helps to balance the traffic along the active instances of an application keeping it quick and available.
+
+\item[Autoscaling] This service is capable to create new instances of the application, even can increase the amount of resources, according the traffic received by the application. The same is in the opposite, if the application receive less traffic or requires less resources, this service can reduce the resources consumption and can stop unused instances.
+
+\item[Cloudformation] Is a techology that can be used to specify through an script the configuration of new instances of the application. This ease the task of delpoy new servers or new instances of the application across different regions, for example.
+
+\item[EC2] Is a web service thar provides resizable computing capacity. Provides the following features:
+\begin{itemize}
+\item Virtual computing environments, known as instances
+
+\item Preconfigured templates for your instances, known as Amazon Machine Images (AMIs), that package the bits you need for your server (including the operating system and additional software)
+
+\item Various configurations of CPU, memory, storage, and networking capacity for your instances, known as instance types
+
+\item Secure login information for your instances using key pairs (AWS stores the public key, and you store the private key in a secure place)
+
+\item Storage volumes for temporary data that's deleted when you stop, hibernate, or terminate your instance, known as instance store volumes
+
+\item Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS), known as Amazon EBS volumes
+
+\item Multiple physical locations for your resources, such as instances and Amazon EBS volumes, known as Regions and Availability Zones
+
+\item A firewall that enables you to specify the protocols, ports, and source IP ranges that can reach your instances using security groups
+
+\item Static IPv4 addresses for dynamic cloud computing, known as Elastic IP addresses
+
+\item Metadata, known as tags, that you can create and assign to your Amazon EC2 resources
+
+\item Virtual networks you can create that are logically isolated from the rest of the AWS Cloud, and that you can optionally connect to your own network, known as virtual private clouds (VPCs)
+\end{itemize}
+
+\item[SQS] Amazon Simple Queue Service (Amazon SQS) offers a secure, durable, and available hosted queue that lets you integrate and decouple distributed software systems and components. Amazon SQS offers common constructs such as dead-letter queues and cost allocation tags. It provides a generic web services API that you can access using any programming language that the AWS SDK supports. Amazon SQS supports both standard and FIFO queues.
+
+\item[CodeBuild] AWS CodeBuild is a fully managed build service that compiles your source code, runs unit tests, and produces artifacts that are ready to deploy.
+
+\item[ECS] Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of Amazon EC2 instances.  With Amazon ECS, your containers are defined in a task definition that you use to run an individual tasks or task within a service.
+
+\item[SNS] Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication. The A2A pub/sub functionality provides topics for high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications. Using Amazon SNS topics, your publisher systems can fanout messages to a large number of subscriber systems, including Amazon SQS queues, AWS Lambda functions, HTTPS endpoints, and Amazon Kinesis Data Firehose, for parallel processing. The A2P functionality enables you to send messages to users at scale via SMS, mobile push, and email.
+
+\item[Cloudwatch] Amazon CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers (SREs), IT managers, and product owners. CloudWatch provides you with data and actionable insights to monitor your applications, respond to system-wide performance changes, and optimize resource utilization. CloudWatch collects monitoring and operational data in the form of logs, metrics, and events. You get a unified view of operational health and gain complete visibility of your AWS resources, applications, and services running on AWS and on-premises. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep your applications running smoothly.
+
+\item[Lambda] AWS Lambda is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as a service (SaaS) applications, and only pay for what you use.
+
+\item[cloudfront] 
+
+\item[cdn] 
+
+\item[SES]
+
+\end{description}
+
+\item What is .NET Core? It's a set of packages that allows to develop lighter, faster and more efficient, even cross platform, applications using the same technology than the .NET framework rather than loading the whole framework.
+
+\item What is middleware? 
+
+\item How do you setup the dependency injection in .NET Core? Inside the \emph{Startup.cs} file must be declared the objects that should be used across the application and specify them as Singletons to avoid create additional and unnecessary instances. Those objects must be passed to the related classes as parameters in the constructor methods.
+
+\item docker deployment? It is an open source technlogy for creating containers. It allows to deploy applications using containers that contain the application and the required dependencies.
+
+\item pipeline
+
+\item containers
+
+\item jenkins
+
+\item unit tests
+\begin{description}
+\item[Mock]
+\item[Stub]
+\item[Assert]
+\end{description}
+
+\item front end
+
+\item Explain the this keyword: The “this” keyword refers to the object that the function is a property of.The value of “this” keyword will always depend on the object that is invoking the function.
+
+\item Which data types do you know in Javascript: String, number, bigint, null, undefined, symbol
+
+\item What is the difference between undefined and null
+
+\item What is an Immediately Invoked Function in JavaScript? An Immediately Invoked Function ( known as IIFE and pronounced as IIFY) is a function that runs as soon as it is defined.
+
+\item What is a closure Closures is an ability of a function to remember the variables and functions that are declared in its outer scope.
+
+\item New features in ES2015 or ES 6
+\end{enumerate}
+
+\subsection{API'S AND MICROSERVICES}
+Api security: startup, encryption
+
+backend for frontend (bff)
+
+\subsection{JS}
+$== \&\& ===$ : ok
+inheritance $-->$ JS uses prototype
+var remains in all the program - ok
+let scoped - ok
+const constant - ok
+functions types: - need to revise
+- functions
+- arrow functions
+- high order functions
+scopes:
+- local - ok
+- block - need to revise
+- global -
+promise: operation that will be completed
+asyncronous operations in Js:
+falsy values: ok
+1 - Explain the this keyword
+The “this” keyword refers to the object that the function is a property of.
+The value of “this” keyword will always depend on the object that is invoking the function.
+2 - Which data types do you know in Javascript 
+String, number, bigint, null, undefined, symbol  
+3 - What is the difference between undefined and null
+3 - 8. What is an Immediately Invoked Function in JavaScript?
+An Immediately Invoked Function ( known as IIFE and pronounced as IIFY) is a function that runs as soon as it is defined.
+4 - What is a closure
+Closures is an ability of a function to remember the variables and functions that are declared in its outer scope.
+5 - New features in ES2015 or ES 6
+7 - What are arrow functions?
+8 - Promise
+9 - Hoisting
+
+
+react:
+components: ok
+lifecycles: no
+hooks: no
+
+DB
+EF - OK
+code first vs database first - just keep the concept
+Add nuget package Entity Framework Core Design
+add-migration migrationname
+update-database
+scaffold-dbcontext "connectionstring" microsoft.entityframework.core.sqlsever -outputdir models
+
+function vs sproc, sproc ok function - ok
+drop vs truncate - need to be more clear
+triggers: function that can be executed during or after an operation that is done in a table. - ok
+
+- try to no mention a lot about previous projects
+- concise and short, say what you need and an example, if the answer is too long the interviewers can be lost in the answer
+
+\subsection{C\#}
+
+Explain MVC
+MVC stands for Model View Controller. It is an architecture to build applications. It has 3 components of MVC: the model, the view, and the controller.
+
+Model: They hold data and its related logic. It handles the object storage and retrieval from the databases for an application. 
+
+View: View handles the UI part of an application. They get the information from the models for their display. For example, any employee view will include many components like text boxes, dropdowns, etc.
+
+Controller: They handle the user interactions, figure out the responses for the user input and also render the final output. For instance, the Employee controller will handle all the interactions and inputs from the Employee View and update the database using the Employee Model.
+
+sealed
+
+async await
+
+CLR
+
+CLI
+
+Entity Framework
+--------------------
+
+BFF Backend for frontend
+
+-----------------------------------------
+
+front end
+
+CI/CD
+
+----------
+react 
+functional component
+jsx
+class component
+hooks
+
+dependency injection
+partial vieww
+
+\subsection{.NET Core}
+
+trade in wfe
+digital retailing
+nada
+
+- Write a solution that counts the words in a string and tells you how many times each word has occured. You can assume words are separated by a space.
+    Ex:
+        "My dog is a good dog"
+            My: 1
+            dog: 2
+            is: 1
+            a: 1
+
+- Implement an algorithm to determine if a string has all unique characters
+    Ex: 
+        Unique: abcdef
+        Not Unique: abcdeedd
+        
+- How would you ensure functions are called in the correct order if they're able to be called from different threads?
+    Example:
+        public class Foo{
+            public Foo(){}
+            public First(){}
+            public Second(){}
+            public Third(){}
+        }
+    How would you ensure First executes first, Second second, and so on.
+	
+	
+What is the most challenging product?
+
+\subsection{Architecture Patterns}
+
+
+Input: chars = ["a","a","b","b","c","c","c"]
+
+*2a2b3c
+
+Reverse a string
+
+Time complexity Space Complexity
+
+To Study:
+Async
+Reflection 
+Extensions Methods
+\end{multicols}
